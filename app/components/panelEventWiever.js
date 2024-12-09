@@ -1,5 +1,4 @@
-import { getEventCurrent } from "../main.js";
-import { showEventReserve } from "../pages/reserveEvent.js";
+import { getEventCurrent, setRoleMasterEventCurrent } from "../main.js";
 import { createLabelCustom } from "./labelCustom.js";
 import { createReviewModal, updateReviewModal } from "./reviewModal.js";
 import { createStarRating } from "./starRaiting.js";
@@ -19,23 +18,23 @@ export const cretaePanelEventWiever = (idMainContainer, oldHash) => {
     divBotLeft.classList.add("containerLeftBot");
 
     const img = document.createElement("img");
-    img.src = eventCurrent.imageUrl;
+    img.src = eventCurrent.data.imageUrl;
     img.id = "data-imgUrl";
     img.classList.add("imgEventWieverCurrent");
 
-    const system = createLabelCustom("Sistema: ", eventCurrent.information.system, "data-system");
+    const system = createLabelCustom("Sistema: ", eventCurrent.data.information.system, "data-system");
 
-    const level = createLabelCustom("Nivel: ", eventCurrent.information.level, "data-level");
+    const level = createLabelCustom("Nivel: ", eventCurrent.data.information.level, "data-level");
 
-    const style = createLabelCustom("Estilo: ", eventCurrent.information.style, "data-style")
+    const style = createLabelCustom("Estilo: ", eventCurrent.data.information.style, "data-style")
 
-    const ambientation = createLabelCustom("Ambientación: ", eventCurrent.information.ambientation, "data-ambientation")
+    const ambientation = createLabelCustom("Ambientación: ", eventCurrent.data.information.ambientation, "data-ambientation")
 
-    const price = createLabelCustom("Precio: ", "$" + eventCurrent.price, "data-price");
+    const price = createLabelCustom("Precio: ", "$" + eventCurrent.data.price, "data-price");
 
-    const duration = createLabelCustom("Duración: ", eventCurrent.duration, "data-duration");
+    const duration = createLabelCustom("Duración Maxima: ", eventCurrent.data.duration, "data-duration");
 
-    const maxPlayers = createLabelCustom("Máximo: ", eventCurrent.maxPlayers + " Jugadores", "data-maxPlayers");
+    const maxPlayers = createLabelCustom("Máximo: ", eventCurrent.data.maxPlayers + " Jugadores", "data-maxPlayers");
 
     divTopLeft.append(img);
     divBotLeft.append(system, level, style, ambientation, price, duration, maxPlayers);
@@ -47,15 +46,15 @@ export const cretaePanelEventWiever = (idMainContainer, oldHash) => {
     divRigth.classList.add("containerRight");
 
     const name = document.createElement("h4");
-    name.textContent = eventCurrent.name
+    name.textContent = eventCurrent.data.name
     name.id = "data-name";
 
     const history = document.createElement("p");
     history.id = "data-history";
-    const text = eventCurrent.information.history
+    const text = eventCurrent.data.information.history
     createEffectHoverWord(text, history);
 
-    const stars = createReviewElement(eventCurrent.reviews);
+    const stars = createReviewElement(eventCurrent.data.reviews);
     stars.addEventListener("click", () =>{
         const reviewModal = document.querySelector("#review-modal");
         if(reviewModal instanceof HTMLElement){
@@ -72,6 +71,7 @@ export const cretaePanelEventWiever = (idMainContainer, oldHash) => {
     button.href
 
     button.addEventListener("click", (e) => {
+        setRoleMasterEventCurrent();
         location.href = "#reserve-event"
     })
 
@@ -85,20 +85,20 @@ export const cretaePanelEventWiever = (idMainContainer, oldHash) => {
 export const updatePanelEventWiever = (sectionMain) => {
     const eventCurrent = getEventCurrent();
 
-    const stars = createReviewElement(eventCurrent.reviews);
+    const stars = createReviewElement(eventCurrent.data.reviews);
 
-    document.querySelector("#data-imgUrl").src = eventCurrent.imageUrl;
-    document.querySelector("#data-system").textContent = eventCurrent.information.system;
-    document.querySelector("#data-level").textContent = eventCurrent.information.level;
-    document.querySelector("#data-style").textContent = eventCurrent.information.style;
-    document.querySelector("#data-ambientation").textContent = eventCurrent.information.ambientation;
-    document.querySelector("#data-price").textContent = "$" + eventCurrent.price;
-    document.querySelector("#data-duration").textContent = eventCurrent.duration;
-    document.querySelector("#data-maxPlayers").textContent = eventCurrent.maxPlayers + " Jugadores";
-    document.querySelector("#data-name").textContent = eventCurrent.name;
+    document.querySelector("#data-imgUrl").src = eventCurrent.data.imageUrl;
+    document.querySelector("#data-system").textContent = eventCurrent.data.information.system;
+    document.querySelector("#data-level").textContent = eventCurrent.data.information.level;
+    document.querySelector("#data-style").textContent = eventCurrent.data.information.style;
+    document.querySelector("#data-ambientation").textContent = eventCurrent.data.information.ambientation;
+    document.querySelector("#data-price").textContent = "$" + eventCurrent.data.price;
+    document.querySelector("#data-duration").textContent = eventCurrent.data.duration;
+    document.querySelector("#data-maxPlayers").textContent = eventCurrent.data.maxPlayers + " Jugadores";
+    document.querySelector("#data-name").textContent = eventCurrent.data.name;
     const history = document.querySelector("#data-history");
     history.replaceChildren()
-    createEffectHoverWord(eventCurrent.information.history, history);
+    createEffectHoverWord(eventCurrent.data.information.history, history);
     document.querySelector("#data-score").replaceChildren(stars);
 }
 
@@ -131,4 +131,8 @@ function createEffectHoverWord(text, elementParent) {
 function getListScores(reviews) {
     const scores = reviews.map(review => review.score);
     return scores;
+}
+
+function updateRoleMastersCurrentXEvent(){
+   ;
 }

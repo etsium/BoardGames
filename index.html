@@ -20,13 +20,25 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
+        <nav id="main-navbar" class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container" style="max-width: 85%;">
                 <a id="img-logo" class="navbar-brand" style="font-weight: 900;" href="#">Board-Games</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="buttonbox-navbar">
+                    <button id="menu-navbar-button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <button class="navbar-toggler logged-in" id="cart-button" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <p id="numbreProduct-cart-button"></p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-cart" viewBox="0 0 16 16">
+                            <path
+                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                        </svg>
+                    </button>
+                </div>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div id="navbarNavPages">
                         <ul class="navbar-nav">
@@ -56,6 +68,31 @@
                             </li>
                         </ul>
                     </div>
+                </div>
+        </nav>
+        <nav class="navbar sticky-top logged-in">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Carrito</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div id="container-cart">                        
+                    </div>
+                    <div class="cart-footer">
+                        <div id="cart-totalPrice-container">
+                            <label>Total: </label>
+                            <label id="cart-totalPrice-label"></label>
+                        </div>
+                        <button class="cartButton" id="cart-buy-button" type="button"> Comprar
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
+                            </svg>
+                        </button>
+                    </div>                    
                 </div>
             </div>
         </nav>
@@ -103,7 +140,7 @@
                     <div class="modal-body">
                         <form id="signup-form">
 
-                            <label for="signup-email">Email: </label>
+                            /*<label for="signup-email">Email: </label>
                             <input type="email" id="signup-email" class="form-control mb-3" placeholder="Email"
                                 required>
 

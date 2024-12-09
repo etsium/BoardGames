@@ -2,7 +2,6 @@ import { setEventCurrent } from "../main.js";
 
 export const card = (event) => {
     const eventCurrent = event;
-
     const linkCard = document.createElement('a');
     linkCard.href = '#view-event';
     linkCard.style.textDecoration = "none";
@@ -11,11 +10,11 @@ export const card = (event) => {
     card.classList.add('postCard');
 
     const titleDoc = document.createElement('h3');
-    titleDoc.textContent = event.name;
+    titleDoc.textContent = event.data.name;
     titleDoc.classList.add('postTitle');
 
     const imgUrlDoc = document.createElement('img');
-    imgUrlDoc.src = event.imageUrl;
+    imgUrlDoc.src = event.data.imageUrl;
     imgUrlDoc.classList.add('postImg');
 
     const buttonReserve = document.createElement('button');
@@ -24,7 +23,7 @@ export const card = (event) => {
 
     const priceDoc = document.createElement('p');
     priceDoc.classList.add('postPrice');
-    priceDoc.innerHTML = '<b>Precio: $</b>' + event.price + ' Args';
+    priceDoc.innerHTML = '<b>Precio: $</b>' + event.data.price + ' Args';
 
     card.appendChild(titleDoc);
     card.appendChild(imgUrlDoc);

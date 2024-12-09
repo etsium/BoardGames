@@ -3,7 +3,7 @@ import { createStarRating } from "./starRaiting.js";
 
 
 export const createReviewModal = () => {
-    const reviews = getEventCurrent().reviews;
+    const reviews = getEventCurrent().data.reviews;
     const modal = document.createElement("section");
 
     const close = document.createElement("p");

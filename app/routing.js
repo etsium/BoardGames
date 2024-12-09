@@ -12,7 +12,7 @@ const hashMap = {
     "#create-event": showPageCreateEvent,
     '#view-event': showEventWiever,
     '#reserve-event': showEventReserve,
-    '#contact': showPageContact
+    '#contact': showPageContact,
 };
 
 window.addEventListener('hashchange', (e) => {
