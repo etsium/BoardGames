@@ -172,7 +172,11 @@ export const updateCart = () => {
 function updateNumberButtonProducts() {
     const currentCart = JSON.parse(localStorage.getItem('Cart'));
     const p = document.querySelector("#numbreProduct-cart-button");
-    p.textContent = currentCart.length;
+    if(currentCart != null){
+        p.textContent = currentCart.length;
+    }else{
+        p.textContent = 0;
+    }   
 }
 
 export function calculateDifferenceHours(hourStart, hourEnd) {
