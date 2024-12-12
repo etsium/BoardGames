@@ -1,4 +1,5 @@
 import { hideAllPages } from "./main.js";
+import { showBuyResponse } from "./pages/buyResponse.js";
 import { showPageContact } from "./pages/contact.js";
 import { showPageCreateEvent } from "./pages/createEvent.js";
 import { showEventWiever } from "./pages/eventWiewer.js";
@@ -7,6 +8,7 @@ import { showPageRolGames } from "./pages/rolGames.js";
 import { showPageTableGames } from "./pages/tableGames.js";
 
 const hashMap = {
+    '#buyResponse': showBuyResponse,
     "#rol-games": showPageRolGames,
     "#table-games": showPageTableGames,
     "#create-event": showPageCreateEvent,
@@ -24,5 +26,11 @@ window.addEventListener('hashchange', (e) => {
 
     if(typeof action === 'function'){
         action(oldHash);
+    }
+});
+
+window.addEventListener('load', (e) => {
+    if (performance.getEntriesByType("navigation")) {
+        window.location.hash = ""
     }
 });

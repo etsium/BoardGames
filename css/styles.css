@@ -15,13 +15,17 @@
   --drop-shadow-card: drop-shadow(5px 5px 10px #b9b9b998);
 }
 
-html, body {
+html,
+body {
   user-select: none;
 }
 
-*::-webkit-scrollbar, html::-webkit-scrollbar{
-  width: 0px; /* Ancho de la barra vertical */
-  height: 0px; /* Ancho de la barra horizontal */
+*::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  width: 0px;
+  /* Ancho de la barra vertical */
+  height: 0px;
+  /* Ancho de la barra horizontal */
 }
 
 button {
@@ -88,7 +92,7 @@ select:focus-visible {
   justify-content: space-between;
 }
 
-.offcanvas-body .cart-footer{
+.offcanvas-body .cart-footer {
   align-self: center;
 }
 
@@ -159,7 +163,7 @@ select:focus-visible {
   overflow: hidden;
 }
 
-.cartContainer-product{
+.cartContainer-product {
   padding: 1rem;
   border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
 }
@@ -552,7 +556,8 @@ select:focus-visible {
     text-align: center;
   }
 
-  #cart-buy-button, #cart-totalPrice-container {
+  #cart-buy-button,
+  #cart-totalPrice-container {
     font-size: 2vw;
   }
 
@@ -619,7 +624,8 @@ select:focus-visible {
     font-size: 63%;
   }
 
-  #cart-buy-button, #cart-totalPrice-container {
+  #cart-buy-button,
+  #cart-totalPrice-container {
     font-size: 3vw;
   }
 
@@ -683,7 +689,7 @@ select:focus-visible {
   }
 
   .star {
-    width: 1.8rem;
+    width: 1.6rem;
   }
 
   .toastify-bottom {
@@ -749,6 +755,7 @@ select:focus-visible {
   padding: 2rem;
   top: 0;
   left: 0;
+  z-index: 101;
   width: 100%;
   display: grid;
 }
@@ -904,3 +911,32 @@ select:focus-visible {
 }
 
 /*---------------------------------------------------*/
+/*----------------------Index-----------------------------*/
+#section-index {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#title-index {}
+
+#img-index {
+  width: 50vw;
+  outline: .3rem solid var(--bs-border-color);
+  outline-offset: .4rem;
+  border-radius: .3rem;
+}
+
+#container-index{
+  margin: 2rem;
+}
+
+@media only screen and (max-width: 735px) {
+  #img-index {
+    width: 80vw;    
+  }
+}
+
+/*--------------------------------------------------------*/

@@ -27,8 +27,8 @@ export const createInputCustom = (name, placeholder, type, idInput) => {
             input.max = (currentyear + 1) + "-" + ((currentMonth + 1)%12).toString().padStart(2, '0') + "-" + dayStartAvailable; 
             break;
         case "time":
-            input.min = "16:00";
-            input.max = "18:00";
+            input.min = "12:00";
+            input.max = "20:00";
             break;
         default:
             input.placeholder = placeholder;

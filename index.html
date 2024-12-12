@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
+    <link rel="icon" type="image/png" href="images/icon.png">
+
     <script src="app/main.js" type="module"></script>
     <script src="app/changetheme.js"></script>
 
@@ -20,12 +22,13 @@
 
 <body>
     <header>
-        <nav id="main-navbar" class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav id="main-navbar" style="position: fixed; width: 100%; z-index: 100;" class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container" style="max-width: 85%;">
-                <a id="img-logo" class="navbar-brand" style="font-weight: 900;" href="#">Board-Games</a>
+                <a id="img-logo" class="navbar-brand" style="font-weight: 900;" href="">Board-Games</a>
                 <div class="buttonbox-navbar">
-                    <button id="menu-navbar-button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button id="menu-navbar-button" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <button class="navbar-toggler logged-in" id="cart-button" type="button" data-bs-toggle="offcanvas"
@@ -78,7 +81,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <div id="container-cart">                        
+                    <div id="container-cart">
                     </div>
                     <div class="cart-footer">
                         <div id="cart-totalPrice-container">
@@ -92,7 +95,7 @@
                                     d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
                             </svg>
                         </button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </nav>
@@ -140,7 +143,7 @@
                     <div class="modal-body">
                         <form id="signup-form">
 
-                            /*<label for="signup-email">Email: </label>
+                            <label for="signup-email">Email: </label>
                             <input type="email" id="signup-email" class="form-control mb-3" placeholder="Email"
                                 required>
 
@@ -159,7 +162,33 @@
             </div>
         </div>
     </header>
-    <main id="main">
+    <main id="main" style="padding-top: 3rem;">
+        <section class="page" id="section-index">
+            <h2 id="title-index">Party Games</h2>
+            <img id="img-index" src="https://blog.blackpowdergamestore.com/wp-content/uploads/2023/12/743bf76f-23ce-425a-a10a-88cb4ce41183.webp"
+                alt="Imagen de publicidad">
+            <div id="container-index">
+                <h1>🎲 ¡Únete a nuestras partidas de rol! 🗺️</h1>
+                <p>Si alguna vez soñaste con <span class="highlight">explorar mazmorras oscuras</span>, derrotar <span
+                        class="highlight">dragones imponentes</span>, o simplemente convertirte en el alma de una
+                    taberna, ¡esta es tu oportunidad!</p>
+                <h2>💬 ¿Qué ofrecemos?</h2>
+                <ul>
+                    <li>Mundos llenos de magia, misterio y aventuras.</li>
+                    <li>Historias únicas que crearemos juntos.</li>
+                    <li>Un ambiente acogedor para veteranos y novatos por igual.</li>
+                </ul>
+                <h2>🕰️ ¿Cuándo?</h2>
+                <p>Sesiones programadas según la disponibilidad del grupo.</p>
+                <h2>🎭 ¿Quién puede unirse?</h2>
+                <p>¡Cualquiera con ganas de imaginar, interpretar y divertirse! No necesitas experiencia previa, solo
+                    curiosidad y una pizca de imaginación.</p>
+                <div>
+                    <p>📩 ¿Te interesa?</p>
+                    <p>Registrate y logeate para ver las campañas que te puedes pedir</p>
+                </div>
+            </div>
+        </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

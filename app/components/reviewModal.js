@@ -28,7 +28,7 @@ export const createReviewModal = () => {
 }
 
 export const updateReviewModal = (modal) => {
-    const reviews = getEventCurrent().reviews;
+    const reviews = getEventCurrent().data.reviews;
     const modalReviews = modal.querySelector(".modalReviews");
     modalReviews.replaceChildren();    
 

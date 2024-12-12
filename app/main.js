@@ -9,6 +9,7 @@ import './googleLogin.js'
 import './routing.js'
 import { createAdminNav } from "./components/adminNav.js";
 import { createCartProduct } from "./components/cartProduct.js";
+import { showMessage } from "./showMessaje.js";
 
 const gameRolMastersList = [
     "7xv2u0v8mvVTE3sEfUlaAO2uYkw2"
@@ -23,6 +24,7 @@ var eventTableGames = [];
 var eventCurrent = null;
 var rolMastersEventCurrent = [];
 const cart = document.querySelector('#cart-button');
+const buyCartButton = document.querySelector('#cart-buy-button');
 
 updateNumberButtonProducts();
 
@@ -30,6 +32,17 @@ cart.addEventListener('click', () => {
     updateCart();
 })
 
+buyCartButton.addEventListener('click', () => {
+    const currentCart = JSON.parse(localStorage.getItem('Cart'));
+    if(Array.isArray(currentCart)){
+        localStorage.removeItem("Cart")
+        updateCart();
+        showMessage("Su compra fue exitosa!");
+        window.location.hash = "buyResponse";
+    }else{
+        showMessage("El carrito esta vacio", "err");
+    }
+})
 
 onAuthStateChanged(auth, async (user) => {
     if (user) {

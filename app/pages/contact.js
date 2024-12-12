@@ -5,8 +5,8 @@ import { createSectionContainer } from "../components/sectionCreator.js";
 import { showPage } from "../main.js";
 
 export const showPageContact = async () => {
-    const email = auth.currentUser.email;
     showLoader();
+    const email = auth.currentUser.email;
     const hash = "#contact";
     const page = document.querySelector('#contact');
     
